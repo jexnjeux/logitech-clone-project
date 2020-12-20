@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import SIDIEBAR_PRODUCT_FILTER from "./SidebarFilterData";
+import React, { Component } from 'react';
+import SIDIEBAR_PRODUCT_FILTER from './SidebarFilterData';
 //import SidebarSubFilter from "./SidebarSubFilter";
 
 export default class SidebarFilter extends Component {
@@ -8,9 +8,7 @@ export default class SidebarFilter extends Component {
     this.state = {
       sidebarFilterList: SIDIEBAR_PRODUCT_FILTER,
       isOpened: false,
-      isCheckOpened: [false, false, false, false, false, false],
-      expandIcon: "https://www.logitech.com/images/icons/icon-expand.svg",
-      collapseIcon: "https://www.logitech.com/images/icons/icon-collapse.svg",
+      isCheckOpened: [false, false, false, false, false, false, false],
     };
   }
 
@@ -29,34 +27,34 @@ export default class SidebarFilter extends Component {
   render() {
     const { sidebarFilterList, isCheckOpened } = this.state;
     const collapseIcon =
-      "https://www.logitech.com/images/icons/icon-collapse.svg";
-    const expandIcon = "https://www.logitech.com/images/icons/icon-expand.svg";
+      'https://www.logitech.com/images/icons/icon-collapse.svg';
+    const expandIcon = 'https://www.logitech.com/images/icons/icon-expand.svg';
+
     return (
-      <div className="SidebarFilter">
+      <div className='SidebarFilter'>
         {sidebarFilterList.map((filter, index) => {
           return (
             <ul key={index}>
-              <div className="filterTitle">
+              <div className='filterTitle'>
                 <button
-                  className="filterCollection"
+                  className='filterCollection'
                   onClick={() => this.openSubFilter(index)}
                 >
                   <span
-                    className={isCheckOpened[index] ? "expanded" : "collapsed"}
+                    className={isCheckOpened[index] ? 'expanded' : 'collapsed'}
                   >
                     {filter.filterTitle}
                   </span>
                   <img src={isCheckOpened[index] ? collapseIcon : expandIcon} />
                 </button>
-                {/*<SidebarSubFilter />} */}
-                <li className="filterCollectionList">
-                  <label className="filterCollectionLabel">
+                <li className='filterCollectionList'>
+                  <label className='filterCollectionLabel'>
                     {isCheckOpened[index] &&
                       filter.filterList.map((subfilter) => {
                         return (
                           <div>
-                            <input type="button" />
-                            <label className="subfilter">{subfilter}</label>
+                            <input type='button' />
+                            <label className='subfilter'>{subfilter}</label>
                           </div>
                         );
                       })}
